@@ -8,12 +8,12 @@ const MintingTool = (props) => {
   const mintNFT = async () => {
     await window.contract.nft_mint(
       {
-        token_id: `${window.accountId}-go-team-token`,
+        token_id: `${window.accountId}-near-challenge`,
         metadata: {
-          title: "My Non Fungible Team Token",
-          description: "The Team Most Certainly Goes :)",
+          title: "Near Spring Welcome Nft",
+          description: "Nft only For near SpringField Users",
           media:
-            "https://bafybeiftczwrtyr3k7a2k4vutd3amkwsmaqyhrdzlhvpt33dyjivufqusq.ipfs.dweb.link/goteam-gif.gif",
+            "https://bafybeiaqt532u7l6dz5acvdd3ekqklisis7rpjfahbzqwsgsbd5inlvewq.ipfs.nftstorage.link/",
         },
         receiver_id: window.accountId,
       },
@@ -27,8 +27,7 @@ const MintingTool = (props) => {
       <Container>
         <Row style={{ marginBottom: "2vh" }}>
           <p>
-            Step 2: After you have logged in, hit this button to mint your "Go
-            Team" Token and go your{" "}
+            Step 2: After you have logged in, hit this button to mint your Token and go your{" "}
             <a href='https://wallet.testnet.near.org/'> wallet</a> and see your
             NFT
           </p>

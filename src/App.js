@@ -20,24 +20,24 @@ const { networkId } = getConfig(process.env.NODE_ENV || "development");
 
 export default function App() {
   const [userHasNFT, setuserHasNFT] = useState(false);
-
+ 
   useEffect(() => {
     const receivedNFT = async () => {
       console.log(
         await window.contract.check_token({
-          id: `${window.accountId}-go-team-token`,
+          id: `${window.accountId}-near-challenge`,
         })
       );
       if (window.accountId !== "") {
         console.log(
           await window.contract.check_token({
-            id: `${window.accountId}-go-team-token`,
+            id: `${window.accountId}-near-challenge`,
           })
         );
 
         setuserHasNFT(
           await window.contract.check_token({
-            id: `${window.accountId}-go-team-token`,
+            id: `${window.accountId}-near-challenge`,
           })
         );
       }
@@ -58,8 +58,8 @@ export default function App() {
               height='30'
               className='d-inline-block align-top'
             />{" "}
-            NEAR Protocol
-          </Navbar.Brand>
+            NEar SpringField challenge
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='me-auto'></Nav>
@@ -77,16 +77,12 @@ export default function App() {
       </Navbar>
       <Container style={{ marginTop: "3vh" }}>
         {" "}
-        <Row>
-          <Alert>
-            Hello! We are going to mint an NFT and have it appear in your
-            wallet! Sign in, mint your nft and head over to{" "}
-            <a href='https://wallet.testnet.near.org/'>
-              wallet.testnet.near.org
-            </a>{" "}
-            to see your new "Go Team" NFT!
-          </Alert>
+        <Row className='d-flex justify-content-center'>
+
+          <img src="https://bafybeiaqt532u7l6dz5acvdd3ekqklisis7rpjfahbzqwsgsbd5inlvewq.ipfs.nftstorage.link/" style={{'height':'350px','width':'300px','justifyContent': 'center',
+    'alignItems': 'center',}}></img>
         </Row>
+        <br/>
         <Row>
           <InfoBubble />
         </Row>
