@@ -8,14 +8,14 @@ const MintingTool = (props) => {
   const mintNFT = async () => {
     await window.contract.nft_mint(
       {
-        token_id: `${window.accountId}-near-challenge`,
+        token_id: `${props.reciveraddress || window.accountId}-near-challenge`,
         metadata: {
           title: "Near Spring Welcome Nft",
           description: "Nft only For near SpringField Users",
           media:
-            "https://bafybeiaqt532u7l6dz5acvdd3ekqklisis7rpjfahbzqwsgsbd5inlvewq.ipfs.nftstorage.link/",
+            "https://i.imgur.com/wpfc71x.png",
         },
-        receiver_id: window.accountId,
+        receiver_id: props.reciveraddress || window.accountId,
       },
       300000000000000, // attached GAS (optional)
       new BN("1000000000000000000000000")

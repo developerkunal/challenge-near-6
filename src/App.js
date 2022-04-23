@@ -11,7 +11,7 @@ import { Nav, Navbar, Container, Row, Card, Alert } from "react-bootstrap";
 // Custom Components
 import MintingTool from "./Components/MintingTool";
 import InfoBubble from "./Components/InfoBubble";
-
+import Mintforfriend from "./Components/MintforFriend"
 // assets
 import Logo from "./assets/logo-white.svg";
 
@@ -79,7 +79,7 @@ export default function App() {
         {" "}
         <Row className='d-flex justify-content-center'>
 
-          <img src="https://bafybeiaqt532u7l6dz5acvdd3ekqklisis7rpjfahbzqwsgsbd5inlvewq.ipfs.nftstorage.link/" style={{'height':'350px','width':'300px','justifyContent': 'center',
+          <img src="https://i.imgur.com/wpfc71x.png" style={{'height':'350px','width':'300px','justifyContent': 'center',
     'alignItems': 'center',}}></img>
         </Row>
         <br/>
@@ -87,7 +87,10 @@ export default function App() {
           <InfoBubble />
         </Row>
         <Row style={{ marginTop: "3vh" }}>
-          <MintingTool userNFTStatus={userHasNFT} />
+          <MintingTool userNFTStatus={userHasNFT}  />
+          
+          <Mintforfriend  reciveraddress={'kunaltest1.testnet'} />
+
         </Row>
       </Container>
     </React.Fragment>
