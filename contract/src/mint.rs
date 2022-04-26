@@ -82,4 +82,12 @@ impl Contract {
         self.tokens_by_id.contains_key(&id)
     }
 
+
+    pub fn get_num(&self) -> i8 {
+        return self.counter;
+    }
+    pub fn increment(&mut self) {
+        self.counter += 1;
+    }
+    
 }

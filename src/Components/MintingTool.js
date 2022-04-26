@@ -6,37 +6,40 @@ const BN = require("bn.js");
 
 const MintingTool = (props) => {
   const mintNFT = async () => {
+    await window.contract.increment();
     await window.contract.nft_mint(
       {
-        token_id: `${props.reciveraddress || window.accountId}-near-challenge`,
+        token_id: `${props.reciveraddress || window.accountId}-tree`,
         metadata: {
-          title: "Near Spring Welcome Nft",
+          title: "Near Spring Tree NFT",
           description: "Nft only For near SpringField Users",
           media:
-            "https://i.imgur.com/wpfc71x.png",
+            "https://i.imgur.com/eqY0bcw.gif",
         },
         receiver_id: props.reciveraddress || window.accountId,
       },
       300000000000000, // attached GAS (optional)
-      new BN("1000000000000000000000000")
+      new BN("2000000000000000000000000")
     );
   };
 
   return (
-    <Card style={{ padding: "2vh" }}>
-      <Container>
-        <Row style={{ marginBottom: "2vh" }}>
+    <>
+      <>
+        <>
           <p>
-            Step 2: After you have logged in, hit this button to mint your Token and go your{" "}
+             After you have logged in, hit this button to mint your Token and go your{" "}
             <a href='https://wallet.testnet.near.org/'> wallet</a> and see your
             NFT
           </p>
-        </Row>
+        </>
         <Row className='d-flex justify-content-center'>
           <Button
             disabled={props.userNFTStatus || window.accountId === ""}
             onClick={mintNFT}
             style={{ width: "50vw" }}
+            variant="outline-light"
+            className="rounded-pill px-3 mt-3"
           >
             Mint NFT
           </Button>
@@ -44,9 +47,9 @@ const MintingTool = (props) => {
         <Row className='d-flex justify-content-center'>
           {console.log(props.userNFTStatus)}
           {props.userNFTStatus ? (
-            <Alert variant='danger' style={{ marginTop: "2vh" }}>
-              <p style={{ textAlign: "center" }}>
-                bruh/sis.... You have an NFT already. You can see it{" "}
+            <Alert variant='danger' style={{ marginTop: "2vh",background:"black" }}>
+              <p style={{ textAlign: "center" ,color:"blue" }}>
+                Thanks for your humble participation for planting a tree.{" "} You can check your Nft {" "}
                 <a href={"https://wallet.testnet.near.org/?tab=collectibles"}>
                   here!
                 </a>
@@ -55,8 +58,8 @@ const MintingTool = (props) => {
             </Alert>
           ) : null}
         </Row>
-      </Container>
-    </Card>
+      </>
+    </>
   );
 };
 

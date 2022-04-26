@@ -51,7 +51,7 @@ pub struct Token {
 //The Json token is what will be returned from view calls. 
 #[derive(Serialize, Deserialize)]
 #[serde(crate = "near_sdk::serde")]
-pub struct JsonToken {
+pub struct JsonToken {  
     //token ID
     pub token_id: TokenId,
     //owner of the token
