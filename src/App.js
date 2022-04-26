@@ -86,6 +86,7 @@ export default function App() {
         style={{ background: "#000", minHeight: "95vh" }}
       >
         <div className="mt-auto text-light mb-5">
+          <h1>Help us to Plant Trees</h1>
           <div
             className=" ratio ratio-1x1 mx-auto mb-2"
             style={{ maxWidth: "350px"}}
