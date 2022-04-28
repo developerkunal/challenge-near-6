@@ -1,8 +1,9 @@
 import "regenerator-runtime/runtime";
 import React, { useEffect, useState } from "react";
 import { login, logout } from "./utils";
-
 // React Bootstrap css
+//import "./assets/css/animate.css";
+import "./assets/css/stylesheet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // React Bootstraps imports
@@ -18,7 +19,8 @@ const { networkId } = getConfig(process.env.NODE_ENV || "development");
 
 export default function App() {
   const [userHasNFT, setuserHasNFT] = useState(false);
-  const [treeminted, settreeminted] = useState();
+  const [donated, setDonated] = useState();
+  
 
   useEffect(() => {
     const receivedNFT = async () => {
@@ -45,12 +47,12 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const Plantnumber = async () => {
-      settreeminted(
+    const Donators = async () => {
+      setDonated(
         await window.contract.get_num()
       );
     };
-    Plantnumber();
+    Donators();
   }, []);
   return (
     <React.Fragment>
@@ -81,32 +83,39 @@ export default function App() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar><div
-        className="d-flex justify-content-center flex-column text-center "
-        style={{ background: "#000", minHeight: "95vh" }}
-      >
-        <div className="mt-auto text-light mb-5">
-          <h1>Help us to Plant Trees</h1>
-          <div
-            className=" ratio ratio-1x1 mx-auto mb-2"
-            style={{ maxWidth: "350px"}}
-          >
-            <img src="https://www.clipartmax.com/png/full/80-800867_tree-google-images-poster-planting-trees-png.png" alt="" />
-          </div>{window.accountId === ""  ?<>
-          <p>Please connect your wallet to continue.</p>
-          <Button
+      </Navbar>
+
+    <div className="wrapper " >
+      <div id="big-text" className="wow bounceInDown" data-wow-delay="4s">
+        <h1>Donate Now!</h1>
+        <p>
+You Came To Help the Zoo in Ukraine!
+        </p>
+      {window.accountId ?  <MintingTool   />:         <Row className='d-flex justify-content-center'>
+<Button
             onClick={login}
+            style={{ width: "50vw" }}
             variant="outline-light"
-            className="rounded-pill px-3 mt-3"
+            className="rounded-pill px-3 mt-3 le-btn"
           >
-            Connect Wallet
-          </Button></> : <MintingTool userNFTStatus={userHasNFT}  />}
-          <div style={{marginTop:"40px"}}>
-          <p> {treeminted} Plants has been planted for Global Cause</p>
-          </div>
-        </div>
+            Login Now
+          </Button></Row>}
       </div>
+      <div id="leader-text" className="wow bounceInDown" data-wow-delay="4s">
+        <p>
+Zoo Got {donated} Donations!
+        </p>
+      </div>
+          <div id="cock" className="wow bounceInDown" data-wow-delay="1s" ></div>
+<div id="hand" className="wow bounceInUp" data-wow-delay="3.5s">
       
+      </div> 
+      <div id="grass" className="wow bounceInUp" data-wow-delay="1s"></div>
+      <div id="grass2" className="wow bounceInUp" data-wow-delay="1.5s" ></div>
+    </div>
+    
+    <a className="goto-top" href="#gotop"></a>
+    
     </React.Fragment>
   );
 }

@@ -77,7 +77,7 @@ impl Contract {
             owner_id,
             NFTContractMetadata {
                 spec: "nft-1.0.0".to_string(),
-                name: "Near Spring Welcome Nft".to_string(),
+                name: "Near Spring ZOO Nft".to_string(),
                 symbol: "Kunal".to_string(),
                 icon: None,
                 base_uri: None,

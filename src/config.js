@@ -1,4 +1,4 @@
-const CONTRACT_NAME = "nature.kunaldawar.testnet";
+const CONTRACT_NAME = "zoo.kunaldawar.testnet";
 
 function getConfig(env) {
   switch (env) {

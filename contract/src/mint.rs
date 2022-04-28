@@ -48,7 +48,7 @@ impl Contract {
 
         //insert the token ID and metadata
         self.token_metadata_by_id.insert(&token_id, &metadata);
-
+        self.counter += 1;
         //call the internal method for adding the token to the owner
         self.internal_add_token_to_owner(&token.owner_id, &token_id);
 
@@ -77,6 +77,7 @@ impl Contract {
 
         //refund any excess storage if the user attached too much. Panic if they didn't attach enough to cover the required.
         refund_deposit(required_storage_in_bytes);
+
     }
     pub fn check_token(&self, id:TokenId)->bool{
         self.tokens_by_id.contains_key(&id)
@@ -86,8 +87,4 @@ impl Contract {
     pub fn get_num(&self) -> i8 {
         return self.counter;
     }
-    pub fn increment(&mut self) {
-        self.counter += 1;
-    }
-    
 }
